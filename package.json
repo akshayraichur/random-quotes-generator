@@ -1,0 +1,24 @@
+{
+  "name": "random-quotes-generator",
+  "version": "1.0.0",
+  "description": "#### This project is an attempt to understand the concepts of webpack, and how webpack bundles and loads content into the browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshayraichur/random-quotes-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshayraichur/random-quotes-generator/issues"
+  },
+  "homepage": "https://github.com/akshayraichur/random-quotes-generator#readme",
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
+}

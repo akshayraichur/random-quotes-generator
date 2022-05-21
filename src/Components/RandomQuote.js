@@ -13,18 +13,30 @@ function fetchData(url, method, payload = {}) {
   });
 }
 
-const generateRandomQuote = (mainElement) => {
+const generateRandomQuote = async () => {
+  console.log("called");
+
   let url = BASE_URL + RANDOM;
 
-  const mainContent = mainElement.querySelector(
-    ".random_quote_section__content"
-  );
+  const div = document.createElement("div");
+  div.classList.add("random_quote_section");
+
+  const mainContent = document.createElement("h1");
+  mainContent.classList.add("random_quote_section__content");
+
+  const authorElement = document.createElement("h4");
+  authorElement.classList.add("random_quote_section__author");
+
+  div.append(mainContent, authorElement);
+
   fetchData(url, "get")
     .then((response) => {
-      console.log(response);
       mainContent.innerText = response.content;
+      authorElement.innerText = response.author;
     })
     .catch((err) => console.log(err));
+
+  return div;
 };
 
 export default generateRandomQuote;

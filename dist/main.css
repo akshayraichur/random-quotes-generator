@@ -1,0 +1,28 @@
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/index.css ***!
+  \*****************************************************************/
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: #2e294e;
+  font-family: "Josefin Sans", sans-serif;
+  color: antiquewhite;
+}
+
+header > h1 {
+  text-align: center;
+}
+
+main {
+  padding: 1rem;
+}
+
+.random_quote_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+

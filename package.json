@@ -4,7 +4,11 @@
   "description": "#### This project is an attempt to understand the concepts of webpack, and how webpack bundles and loads content into the browser.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production",
+    "dev:watch": "npm run dev -- --watch",
+    "prod:watch": "npm run prod -- --watch"
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,15 @@
   },
   "homepage": "https://github.com/akshayraichur/random-quotes-generator#readme",
   "devDependencies": {
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "raw-loader": "^4.0.2",
+    "style-loader": "^3.3.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
   }
 }

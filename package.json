@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development",
+    "dev": "webpack-dev-server --mode development",
     "prod": "webpack --mode production",
     "dev:watch": "npm run dev -- --watch",
     "prod:watch": "npm run prod -- --watch"
@@ -28,7 +28,8 @@
     "raw-loader": "^4.0.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
     "axios": "^0.27.2"

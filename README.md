@@ -7,3 +7,5 @@
 ##### Final Results :
 
 ![HomePage](./screenshots/RQGA-homepage.jpeg)
+
+![Loading](./screenshots/RQGA-loading.png)

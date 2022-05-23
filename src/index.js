@@ -5,7 +5,6 @@ import generateRandomQuote from "./Components/RandomQuote";
 const mainElement = document.querySelector(".main");
 
 const App = async () => {
-  // fetches a random quote and returns a div
   const initialQuoteElement = await initialQuote(mainElement);
   mainElement.append(initialQuoteElement);
 

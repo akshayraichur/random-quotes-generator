@@ -1,15 +1,13 @@
+import CreateDOM from './CreateDOM';
+import UpdatInnerContent from '../Utils/UpdateInnerContent';
+import AppendDomElement from '../Utils/AppendDomElement';
+import BUTTON from '../Constants/Button';
+
 const RefreshButton = (mainElement) => {
-  const btnContainer = document.createElement("div");
-  btnContainer.classList.add("btnContainer");
-
-  const btn = document.createElement("button");
-  btn.classList.add("btn");
-
-  btn.innerText = "Refresh";
-  btnContainer.append(btn);
-  mainElement.append(btnContainer);
-
-  return btn;
+  UpdatInnerContent(CreateDOM.btn, BUTTON.CONTENT.REFRESH);
+  AppendDomElement(CreateDOM.container,CreateDOM.btn);
+  AppendDomElement( mainElement,CreateDOM.container);
+  return CreateDOM.btn;
 };
 
 export default RefreshButton;

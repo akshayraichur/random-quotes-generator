@@ -1,27 +1,32 @@
-import fetchData from "../Services/Api";
-import { BASE_URL, RANDOM } from "../Constants/Urls";
+import  Elements from './CreateDOM';
+import getQuote  from "./GetQuote";
+import RemoveDOMElement from "../Utils/RemoveElement";
+import AppendDOMElement from "../Utils/AppendDomElement";
+import UpdateInnerContent from "../Utils/UpdateInnerContent";
+import { DOM } from "../Constants/DOM";
 
-const generateRandomQuote = (btnElement, quoteContainer) => {
-  let url = BASE_URL + RANDOM;
-  btnElement.addEventListener("click", function () {
-    const mainContentElement = quoteContainer.querySelector("h1");
-    const authorElement = quoteContainer.querySelector("h4");
+const generateRandomQuote =  (btnElement, quoteContainer) => {
 
-    mainContentElement.innerText = "";
-    authorElement.innerText = "";
+  btnElement.addEventListener("click", async function () {
+    try{
+      const mainContentElement = quoteContainer.querySelector(DOM.H1);
+      const authorElement = quoteContainer.querySelector(DOM.H4);
+  
+      UpdateInnerContent(mainContentElement," ");
+      UpdateInnerContent(authorElement," ");
+  
+      const response = await getQuote();
+      UpdateInnerContent(mainContentElement,response.data.content);
+      UpdateInnerContent(authorElement,response.data.author);
+      
+      RemoveDOMElement(Elements.loadingDiv);
+    }
+    catch(err){
+      console.log(err)
+    }
+   
 
-    const loadingDiv = document.createElement("div");
-    loadingDiv.classList.add("lds-dual-ring");
-    quoteContainer.append(loadingDiv);
-
-    fetchData(url, "get")
-      .then((response) => {
-        mainContentElement.innerText = response.content;
-        authorElement.innerText = response.author;
-        loadingDiv.remove();
-      })
-      .catch((err) => console.log(err));
-  });
+   });
 };
 
 export default generateRandomQuote;

@@ -1,32 +1,23 @@
-import fetchData from "../Services/Api";
-import { BASE_URL, RANDOM } from "../Constants/Urls";
+import  Elements from './CreateDOM';
+import getQuote  from "./GetQuote";
+import AppendDOMElement from '../Utils/AppendDomElement';
+import UpdateInnerContent from '../Utils/UpdateInnerContent';
 
-const initialQuote = async (mainElement) => {
-  let url = BASE_URL + RANDOM;
+const InitialQuote = async () => {
+  try{
+    const response = await getQuote();
+    
+    UpdateInnerContent(Elements.mainContent,response.data.content);
+    UpdateInnerContent(Elements.authorElement,response.data.author);
+    AppendDOMElement(Elements.div, Elements.mainContent);
+    AppendDOMElement(Elements.div, Elements.authorElement);
 
-  const loadingDiv = document.createElement("div");
-  loadingDiv.classList.add("lds-dual-ring");
+    return Elements.div;
 
-  const div = document.createElement("div");
-  div.classList.add("random_quote_section");
-
-  const mainContent = document.createElement("h1");
-  mainContent.classList.add("random_quote_section__content");
-
-  const authorElement = document.createElement("h4");
-  authorElement.classList.add("random_quote_section__author");
-
-  div.append(mainContent, loadingDiv, authorElement);
-
-  fetchData(url, "get")
-    .then((response) => {
-      mainContent.innerText = response.content;
-      authorElement.innerText = response.author;
-      loadingDiv.remove();
-    })
-    .catch((err) => console.log(err));
-
-  return div;
+  }
+  catch(err){
+    console.log(err)
+  }
 };
 
-export default initialQuote;
+export default InitialQuote;

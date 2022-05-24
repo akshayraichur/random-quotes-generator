@@ -5,8 +5,7 @@ import BUTTON from '../Constants/Button';
 
 const RefreshButton = (mainElement) => {
   UpdatInnerContent(CreateDOM.btn, BUTTON.CONTENT.REFRESH);
-  AppendDomElement(CreateDOM.container,CreateDOM.btn);
-  AppendDomElement( mainElement,CreateDOM.container);
+  AppendDomElement( mainElement,CreateDOM.btn);
   return CreateDOM.btn;
 };
 
